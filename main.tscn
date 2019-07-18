@@ -26,7 +26,7 @@ size_flags_stretch_ratio = 0.15
 
 [node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer"]
 margin_right = 153.0
-margin_bottom = 435.0
+margin_bottom = 461.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
@@ -42,9 +42,9 @@ selection_enabled = true
 script = ExtResource( 3 )
 
 [node name="NameEntry" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
-margin_top = 439.0
+margin_top = 465.0
 margin_right = 153.0
-margin_bottom = 468.0
+margin_bottom = 495.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
@@ -52,29 +52,19 @@ theme = ExtResource( 2 )
 placeholder_text = "User Name"
 
 [node name="IPEntry" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
-margin_top = 472.0
+margin_top = 499.0
 margin_right = 153.0
-margin_bottom = 501.0
+margin_bottom = 529.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 theme = ExtResource( 2 )
 placeholder_text = "IP To Connect To"
 
-[node name="PortEntry" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
-margin_top = 505.0
-margin_right = 153.0
-margin_bottom = 534.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.05
-theme = ExtResource( 2 )
-placeholder_text = "Port To Connect/Host"
-
 [node name="ConnectButton" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 538.0
+margin_top = 533.0
 margin_right = 153.0
-margin_bottom = 567.0
+margin_bottom = 563.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
@@ -82,7 +72,7 @@ theme = ExtResource( 2 )
 text = "Connect"
 
 [node name="StartServer" type="Button" parent="HBoxContainer/VBoxContainer"]
-margin_top = 571.0
+margin_top = 567.0
 margin_right = 153.0
 margin_bottom = 600.0
 size_flags_horizontal = 3
@@ -112,6 +102,7 @@ focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 2 )
+text = "Initialize a connection..."
 scroll_following = true
 selection_enabled = true
 script = ExtResource( 3 )
@@ -123,13 +114,12 @@ margin_bottom = 600.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 
-[node name="MsgEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="MsgEdit" type="TextEdit" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
 margin_right = 776.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.9
 theme = ExtResource( 2 )
-placeholder_text = "Type a message..."
 
 [node name="SendButton" type="Button" parent="HBoxContainer/VBoxContainer2/HBoxContainer"]
 margin_left = 780.0
@@ -141,3 +131,5 @@ theme = ExtResource( 2 )
 text = "Send"
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ConnectButton" to="." method="_on_ConnectButton_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/StartServer" to="." method="_on_StartServer_pressed"]
+[connection signal="text_changed" from="HBoxContainer/VBoxContainer2/HBoxContainer/MsgEdit" to="." method="_on_MsgEdit_text_changed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/HBoxContainer/SendButton" to="." method="_on_SendButton_pressed"]
